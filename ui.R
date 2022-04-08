@@ -1,3 +1,37 @@
+#necessary packages
+library(shiny)
+library(shinythemes)
+library(leaflet)
+library(tidyverse)
+library(ggplot2)
+library(grid)
+library(DT)
+library(shinyjs)
+library(sodium)
+library(shinyauthr)
+library(RSQLite)
+library(DBI)
+
+# data
+load("Ventless.Rda")
+
+# tables and images
+Fig1 <- base64enc::dataURI(file="Fig1.png", mime="image/png")
+Picture1 <- base64enc::dataURI(file="Picture1.jpg", mime="image/png")
+Picture2 <- base64enc::dataURI(file="Picture2.jpg", mime="image/png")
+Table1 <- base64enc::dataURI(file="Table1.png", mime="image/png")
+Logo <- base64enc::dataURI(file="Logo.png", mime="image/png")
+g <- rasterGrob(blues9, width=unit(1,"npc"), height = unit(1,"npc"), 
+                interpolate = TRUE)
+
+# dataframe that holds usernames, passwords and other user data
+user_base <- tibble::tibble(
+    user = "DMR1",
+    password = "lobster21",
+    permission = "standard",
+    name = "User One"
+)
+
 #begin ui
 ui <- fluidPage(theme = shinytheme("united"),
     # Add logout button UI 
