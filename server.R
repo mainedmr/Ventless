@@ -149,10 +149,10 @@ server <- function(input, output) {
         })
     output$dl_Key <- downloadHandler(
         filename = function() {
-            paste("data-",Sys.Date(), ".csv", sep="")
+            paste("data-",Sys.Date(), ".xlsx", sep="")
         },
         content = function(file) {
-            write.csv(Key,file)
+            write.xlsx(Key,file)
         })
     
     observe({
