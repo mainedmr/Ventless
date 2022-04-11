@@ -10,6 +10,7 @@ library(sodium)
 library(shinyauthr)
 library(RSQLite)
 library(DBI)
+library(xlsx)
 
 # data
 load("Ventless.Rda")
