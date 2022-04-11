@@ -1,4 +1,3 @@
-#necessary packages
 library(shiny)
 library(shinythemes)
 library(leaflet)
@@ -14,6 +13,13 @@ library(DBI)
 
 # data
 load("Ventless.Rda")
+Temp <- read.csv("X:/Bio Monitor/Ventless Trap Survey/Ventless Survey Portal/medmr_ventless/Temp.csv")
+Trap <- read.csv("X:/Bio Monitor/Ventless Trap Survey/Ventless Survey Portal/medmr_ventless/Trap.csv")
+Trip <- read.csv("X:/Bio Monitor/Ventless Trap Survey/Ventless Survey Portal/medmr_ventless/Trip.csv")
+Species <- read.csv("X:/Bio Monitor/Ventless Trap Survey/Ventless Survey Portal/medmr_ventless/Species.csv")
+Port <- read.csv("X:/Bio Monitor/Ventless Trap Survey/Ventless Survey Portal/medmr_ventless/Port.csv")
+Catch <- read.csv("X:/Bio Monitor/Ventless Trap Survey/Ventless Survey Portal/medmr_ventless/Catch.csv")
+Bio <- read.csv("X:/Bio Monitor/Ventless Trap Survey/Ventless Survey Portal/medmr_ventless/Bio.csv")
 
 # tables and images
 Fig1 <- base64enc::dataURI(file="Fig1.png", mime="image/png")
@@ -159,7 +165,7 @@ ui <- fluidPage(theme = shinytheme("united"),
                     tabPanel("Downloads", 
                              value = "raw",
                              uiOutput("download_page"),
-                             h4("To rePort any issues, please contact:"),
+                             h4("To report any issues, please contact:"),
                              tags$div("Matt Davis", tags$br(),
                                       "Maine Department of Marine Resources", tags$br(),
                                       "P.O. Box 8,", tags$br(),
